@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+/*
+ * Colours come from the church itself:
+ *   navy + white  — the sign out front on South Franklin Street
+ *   sky           — the open door in their logo, which opens onto clouds
+ *   brass         — the two lanterns either side of the front doors
+ *   block         — the pale painted block of the building
+ */
+:root {
+  --navy: #1f2d5c;
+  --navy-deep: #131c3d;
+  --navy-ink: #0c1230;
+  --sky: #d7e8f5;
+  --sky-mid: #a9cbe8;
+  --sky-deep: #5d8fc2;
+  --brass: #b4842f;
+  --brass-pale: #f1dfae;
+  --block: #e9ebe5;
+  --paper: #f8f7f2;
+  --ink: #1a2038;
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-ink: var(--navy-ink);
+  --color-sky: var(--sky);
+  --color-sky-mid: var(--sky-mid);
+  --color-sky-deep: var(--sky-deep);
+  --color-brass: var(--brass);
+  --color-brass-pale: var(--brass-pale);
+  --color-block: var(--block);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --font-display: var(--font-dmserif), Georgia, serif;
+  --font-display-italic: var(--font-dmserif-italic), Georgia, serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--brass-pale);
+  color: var(--navy-ink);
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+  }
+  .display-i {
+    font-family: var(--font-display-italic);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .eyebrow {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .wrap {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 76rem;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 640px) {
+    .wrap {
+      padding-inline: 2rem;
+    }
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    border-radius: 999px;
+    padding: 0.95rem 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    transform: none;
+  }
+  .btn-navy {
+    background: var(--navy);
+    color: white;
+    box-shadow: 0 10px 30px -12px rgb(19 28 61 / 0.6);
+  }
+  .btn-navy:hover {
+    background: var(--navy-deep);
+  }
+  .btn-brass {
+    background: var(--brass-pale);
+    color: var(--navy-ink);
+  }
+  .btn-brass:hover {
+    background: #f6e8c4;
+  }
+  .btn-ghost {
+    color: white;
+    box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.55);
+  }
+  .btn-ghost:hover {
+    box-shadow: inset 0 0 0 1.5px white;
+  }
+  .btn-line {
+    color: var(--navy);
+    box-shadow: inset 0 0 0 1.5px rgb(31 45 92 / 0.35);
+  }
+  .btn-line:hover {
+    box-shadow: inset 0 0 0 1.5px var(--navy);
+  }
+
+  .label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--navy-deep);
+  }
+  .field {
+    width: 100%;
+    border-radius: 0.85rem;
+    background: white;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    box-shadow: inset 0 0 0 1px rgb(26 32 56 / 0.16);
+    transition: box-shadow 0.15s ease;
+  }
+  .field:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--navy);
+  }
+
+  /* Footprints walking through the doorway, one after another. */
+  .step {
+    opacity: 0;
+    animation: step-in 0.5s ease forwards;
+  }
+
+  /* The door itself: hinged on the left, it swings open once on load. */
+  .door-leaf {
+    transform-origin: left center;
+    transform: perspective(1400px) rotateY(0deg);
+    animation: door-open 2.1s cubic-bezier(0.6, 0.05, 0.25, 1) 0.5s forwards;
+  }
+
+  .clouds {
+    animation: drift 40s linear infinite alternate;
+  }
+
+  .grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  /* Block coursing, like the painted block walls of the church. */
+  .blockwork {
+    background-color: var(--block);
+    background-image:
+      linear-gradient(rgb(26 32 56 / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(26 32 56 / 0.07) 1px, transparent 1px);
+    background-size: 84px 42px, 84px 84px;
+    background-position: 0 0, 0 0;
+  }
+
+  .polaroid {
+    background: white;
+    padding: 0.6rem 0.6rem 2.6rem;
+    box-shadow: 0 18px 40px -20px rgb(19 28 61 / 0.45), 0 2px 6px rgb(19 28 61 / 0.08);
+  }
+
+  .prose-church p + p {
+    margin-top: 1.1em;
+  }
+}
+
+@keyframes door-open {
+  to {
+    transform: perspective(1400px) rotateY(-60deg);
+  }
+}
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes drift {
+  to {
+    transform: translateX(-12%);
+  }
+}
+
+/* Scroll reveals: content is visible without JS; hidden only once JS runs. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.js [data-reveal].in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .door-leaf {
+    animation: none;
+    transform: perspective(1400px) rotateY(-60deg);
+  }
+  .step,
+  .clouds {
+    animation: none;
+    opacity: 1;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
