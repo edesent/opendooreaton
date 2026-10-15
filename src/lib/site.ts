@@ -6,11 +6,11 @@
  * a broken button. Paste the real link in and the card turns into the real thing.
  */
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://opendooreaton.dfd.llc";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.opendooreaton.org";
 
 /**
- * Preview hosts stay out of search. The church has no domain of its own yet,
- * so once NEXT_PUBLIC_SITE_URL is set to their real domain this turns off.
+ * Preview hosts stay out of search. The live site is www.opendooreaton.org
+ * (NEXT_PUBLIC_SITE_URL in Vercel); any preview host set there turns this on.
  */
 export const isDemo = /(\.dfd\.llc|\.vercel\.app|\.elijahdesent\.com)$/.test(new URL(siteUrl).hostname);
 

@@ -3,7 +3,7 @@
 Website for Open Door Church of God, 215 S. Franklin Street, Eaton, OH 45320 (Preble County).
 Pastor: **Paul David Bane**. Church of God (Cleveland, Tennessee). They have no website of their own; their only web presence is facebook.com/OpenDoorChurchofGod.
 
-Preview: https://opendooreaton.dfd.llc (hidden from search engines; see "Going live").
+Live: https://www.opendooreaton.org (launched 2026-10-15). The bare domain, opendooreaton.dfd.llc and opendooreaton.vercel.app all 308-redirect to www.
 
 ## Read this before editing (for people and AI assistants)
 
@@ -64,9 +64,9 @@ Plan-a-visit, contact and prayer all post to `/api/form`, which forwards each me
 
 ## Going live
 
-1. Register a domain (e.g. opendooreaton.org) and point it at this Vercel project.
-2. In Vercel, set `NEXT_PUBLIC_SITE_URL=https://<their domain>`. That turns on search indexing and fixes canonical URLs.
-3. Set `FORM_WEBHOOK_URL`.
+1. ~~Register a domain and point it at this Vercel project.~~ Done: `opendooreaton.org`, Amazon Registrar (Eli's account), DNS in Route 53. `A @ 216.150.1.1 + 216.150.16.1`, `CNAME www` → Vercel.
+2. ~~Set `NEXT_PUBLIC_SITE_URL`.~~ Done: `https://www.opendooreaton.org` (production). This turns on search indexing and sets canonical URLs.
+3. Set `FORM_WEBHOOK_URL`. Until then the forms ask visitors to call.
 4. Fill in `links`.
 
 ## Sources
