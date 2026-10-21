@@ -67,7 +67,7 @@ export const weekly = [
     day: "Sunday",
     name: "Sunday School",
     short: "Sunday School",
-    time: "10:00 am",
+    time: "9:45 am",
     note: "Open Bibles and honest questions, for every age, before worship.",
   },
   {
