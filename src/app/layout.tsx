@@ -29,7 +29,7 @@ const figtree = localFont({
   display: "swap",
 });
 
-const description = `${church.name} on South Franklin Street in Eaton, Ohio. ${church.focus} Led by ${pastor.full}. Sunday School 10 am, Sunday Morning 11 am, Sunday Night 6 pm, Wednesday 7 pm.`;
+const description = `${church.name} on South Franklin Street in Eaton, Ohio. ${church.focus} Led by ${pastor.full}. Sunday School 9:45 am, Sunday Morning 11 am, Sunday Night 6 pm, Wednesday 7 pm.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
