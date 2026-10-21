@@ -25,7 +25,7 @@ const expect = [
   },
   {
     q: "What about my kids?",
-    a: "Children are welcome in every service, wiggles and all. Sunday School at 10:00 has a place for every age.",
+    a: "Children are welcome in every service, wiggles and all. Sunday School at 9:45 has a place for every age.",
   },
   {
     q: "Where do I park?",
