@@ -98,7 +98,14 @@ export const weekly = [
  * Add one: { title, date: "Sat, Nov 21 · 10 am", endsOn: "2026-11-21", body }
  */
 export type ChurchEvent = { title: string; date: string; endsOn: string; body: string };
-export const events: ChurchEvent[] = [];
+export const events: ChurchEvent[] = [
+  {
+    title: "Poppy Road in Concert",
+    date: "Sun, Nov 15 · 11 am",
+    endsOn: "2026-11-15",
+    body: "Poppy Road joins us for Sunday morning at Open Door Church of God, 215 S. Franklin Street, Eaton. Come and bring a friend.",
+  },
+];
 
 export function upcomingEvents(now = new Date()) {
   const today = now.toLocaleDateString("en-CA", { timeZone: "America/New_York" });
