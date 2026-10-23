@@ -208,16 +208,16 @@ export default function Home() {
       {/* ───────── Come on in ───────── */}
       <section className="wrap grid gap-10 py-24 sm:py-28 lg:grid-cols-2 lg:items-center">
         <div data-reveal>
-          <div className="relative aspect-[3/2] overflow-hidden rounded-[1.75rem]">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-[1.75rem]">
             <Image
-              src="/photos/front-doors.webp"
-              alt="The church’s white front doors under a small gable, with a brass lantern on each side"
+              src="/photos/open-door-church-front.webp"
+              alt="The white front of Open Door Church of God with its entrance and church sign"
               fill
               sizes="(min-width: 1024px) 36rem, 90vw"
               className="object-cover"
             />
           </div>
-          <p className="mt-4 text-sm text-ink/55">The real front doors, on South Franklin Street.</p>
+          <p className="mt-4 text-sm text-ink/55">Open Door Church of God on South Franklin Street.</p>
         </div>
         <div data-reveal="1">
           <p className="eyebrow text-brass">Come on in</p>
