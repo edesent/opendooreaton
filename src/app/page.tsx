@@ -47,8 +47,17 @@ export default function Home() {
               <span className="eyebrow mt-1 block !text-[0.7rem] text-ink/50">{verse.ref}</span>
             </p>
           </div>
-          <div className="px-[12%] sm:px-[16%] lg:px-[10%]">
-            <Doorway />
+          <div className="px-[6%] sm:px-[10%] lg:px-[4%]">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-[30rem] overflow-hidden rounded-[1.75rem] shadow-[0_40px_80px_-30px_rgba(12,18,48,0.55)]">
+              <Image
+                src="/photos/open-door-church-front.webp"
+                alt="The white front of Open Door Church of God with its entrance and church sign"
+                fill
+                sizes="(min-width: 1024px) 30rem, 90vw"
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
